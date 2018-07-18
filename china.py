@@ -2181,20 +2181,9 @@ data = '''
 '''
 import json
 import random
-datas = json.loads(data)
-provinces = {}
-for data in datas['provinces']:
-    temp = data['provinceName']
-    if temp.find("省"):
-        "省".replace("")
-    if temp.find("市"):
-        "市".replace("")
-    if temp.find("自治区"):
-        "自治区".replace("")
-    if temp.find("回族自治区"):
-        "回族自治区".replace("")
-    if(temp.find("维吾尔自治区")):
-        "维吾尔自治区".replace("")
-    #provinces.setdefault(temp, random.randint(1,1000))
 
-    print temp
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
+
