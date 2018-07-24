@@ -10,7 +10,9 @@ import random
 urls = (
     '/hello', 'hello',
     '/provinces', 'provinces',
-    '/citys', 'citys'
+    '/citys', 'citys',
+    '/levels', 'levels',
+    '/completion', 'completion'
 )
 app = web.application(urls, globals())
 
@@ -62,6 +64,22 @@ class citys:
         c = json.dumps(result,ensure_ascii=False)
         print c
         return c
-
+class levels:
+    def GET(self):
+        web.header("Access-Control-Allow-Origin", "*")
+        result = {}
+        result.setdefault("highest", random.randint(1,100))
+        result.setdefault("high", random.randint(50,100))
+        result.setdefault("middle", random.randint(200,500))
+        result.setdefault("low", random.randint(200,700))
+        c = json.dumps(result, ensure_ascii=False)
+        print c
+        return c
+class completion:
+    def GET(self):
+        web.header("Access-Control-Allow-Origin", "*")
+        c = random.randint(60, 100)
+        print c
+        return c;
 if __name__ == "__main__":
     app.run()
